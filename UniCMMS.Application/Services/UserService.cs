@@ -1,6 +1,7 @@
 using UniCMMS.Application.Interfaces;
 using UniCMMS.Domain.Entities;
 using UniCMMS.Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace UniCMMS.Application.Services;
 
@@ -10,6 +11,18 @@ public class UserService : IUserService
 
     public UserService(IUserRepository repository) => _repository = repository;
 
+    public async Task<(IEnumerable<User>, int totalCount)> GetPagedAsync(int pageNumber, int pageSize)
+    {
+        var query = _repository.Query(); // il faut exposer IQueryable dans IUserRepository, ou créer méthode spécifique
+        var totalCount = await query.CountAsync();
+
+        var items = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (items, totalCount);
+    }
     public async Task<IEnumerable<User>> GetAllAsync() => await _repository.GetAllAsync();
 
     public async Task<User?> GetByIdAsync(int id) => await _repository.GetByIdAsync(id);

@@ -9,4 +9,6 @@ public interface IUserService
     Task<User> CreateAsync(User user);
     Task<User?> UpdateAsync(int id, User updatedUser);
     Task<bool> DeleteAsync(int id);
+    Task<(IEnumerable<User>, int totalCount)> GetPagedAsync(int pageNumber, int pageSize);
+
 }

@@ -46,4 +46,11 @@ public class UsersController : ControllerBase
         var result = await _service.DeleteAsync(id);
         return result ? NoContent() : NotFound();
     }
+
+    [HttpGet]
+public async Task<IActionResult> GetAll([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
+{
+    var (users, totalCount) = await _service.GetPagedAsync(pageNumber, pageSize);
+    return Ok(new { totalCount, users });
+}
 }

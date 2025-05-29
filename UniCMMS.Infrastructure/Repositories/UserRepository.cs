@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using UniCMMS.Domain.Entities;
 using UniCMMS.Domain.Interfaces;
 using UniCMMS.Infrastructure.Persistence;
+using System.Linq;
+
 
 namespace UniCMMS.Infrastructure.Repositories;
 
@@ -9,6 +11,8 @@ public class UserRepository : IUserRepository
 {
     private readonly AppDbContext _context;
     public UserRepository(AppDbContext context) => _context = context;
+
+    public IQueryable<User> Query() => _context.Users.AsNoTracking();
 
     public async Task<IEnumerable<User>> GetAllAsync() => await _context.Users.ToListAsync();
 
