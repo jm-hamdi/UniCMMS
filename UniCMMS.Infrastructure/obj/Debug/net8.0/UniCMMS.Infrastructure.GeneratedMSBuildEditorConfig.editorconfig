@@ -17,5 +17,3 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = UniCMMS.Infrastructure
 build_property.ProjectDir = /Users/JM/Desktop/UniCMMS/UniCMMS.Infrastructure/
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 

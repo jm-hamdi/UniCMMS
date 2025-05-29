@@ -12,12 +12,12 @@ public class UsersController : ControllerBase
 
     public UsersController(IUserService service) => _service = service;
 
-    [HttpGet]
-    public async Task<IActionResult> GetAll()
-    {
-        var users = await _service.GetAllAsync();
-        return Ok(users);
-    }
+    // [HttpGet]
+    // public async Task<IActionResult> GetAll()
+    // {
+    //     var users = await _service.GetAllAsync();
+    //     return Ok(users);
+    // }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)

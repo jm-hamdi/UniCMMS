@@ -6,7 +6,6 @@ public class WorkOrder
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
     public int StatusId { get; set; }
-    public Status? Status { get; set; }
     public DateTime DueDate { get; set; }
     public ICollection<WorkOrderAssignee> WorkOrderAssignees { get; set; } = new List<WorkOrderAssignee>();
 }

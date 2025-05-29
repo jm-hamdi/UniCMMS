@@ -1,18 +1,30 @@
 ﻿<Properties StartupConfiguration="{EEF90A02-BD07-4E29-8354-C2F1B690D5F5}|https">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.UniCMMS.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="UniCMMS.API/Controllers/UsersController.cs">
+    <Files>
+      <File FileName="UniCMMS.API/Controllers/UsersController.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="UniCMMS" expanded="True" selected="True" />
+          <Node name="UniCMMS">
+            <Node name="UniCMMS.API" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="UsersController.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="UniCMMS.Application" expanded="True" />
+            <Node name="UniCMMS.Domain" expanded="True" />
+            <Node name="UniCMMS.Infrastructure" expanded="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.UniCMMS.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

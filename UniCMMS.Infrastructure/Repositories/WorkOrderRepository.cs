@@ -13,12 +13,25 @@ public class WorkOrderRepository : IWorkOrderRepository
     public async Task<IEnumerable<WorkOrder>> GetAllAsync(string? status = null, int? assigneeId = null)
     {
         var query = _context.WorkOrders
-            .Include(w => w.Status)
             .Include(w => w.WorkOrderAssignees).ThenInclude(wa => wa.User)
             .AsQueryable();
 
         if (!string.IsNullOrEmpty(status))
-            query = query.Where(w => w.Status.Name == status);
+        {
+            // Récupère l'Id du status via la table Statuses
+            var statusEntity = await _context.Statuses
+                .FirstOrDefaultAsync(s => s.Name == status);
+
+            if (statusEntity != null)
+            {
+                query = query.Where(w => w.StatusId == statusEntity.Id);
+            }
+            else
+            {
+                // Aucun status trouvé, renvoie liste vide
+                return new List<WorkOrder>();
+            }
+        }
 
         if (assigneeId.HasValue)
             query = query.Where(w => w.WorkOrderAssignees.Any(a => a.UserId == assigneeId.Value));
@@ -28,7 +41,6 @@ public class WorkOrderRepository : IWorkOrderRepository
 
     public async Task<WorkOrder?> GetByIdAsync(int id) =>
         await _context.WorkOrders
-            .Include(w => w.Status)
             .Include(w => w.WorkOrderAssignees).ThenInclude(wa => wa.User)
             .FirstOrDefaultAsync(w => w.Id == id);
 
