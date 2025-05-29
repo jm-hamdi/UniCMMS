@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniCMMS.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03356dc6d38309744de5fe2c576a2e89792a396a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea794b2644bf7c57b89f7a31f9be40071e7fa23b")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniCMMS.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniCMMS.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
