@@ -1,27 +1,45 @@
-using UniCMMS.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using UniCMMS.Application.Interfaces;
+using UniCMMS.Application.Services;
+using UniCMMS.Domain.Interfaces;
+using UniCMMS.Infrastructure.Persistence;
+using UniCMMS.Infrastructure.Repositories;
+using UniCMMS.API.Middleware; 
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Serilog (optionnel)
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .CreateLogger();
+builder.Host.UseSerilog();
 
-// Add services
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Add DbContext
+// Ajout DbContext avec SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Enregistrement des repositories
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IWorkOrderRepository, WorkOrderRepository>();
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Enregistrement des services métiers
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IWorkOrderService, WorkOrderService>();
+
+// Ajout des controllers
+builder.Services.AddControllers();
+
+// Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware gestion des erreurs
+app.UseMiddleware<ErrorHandlingMiddleware>();
+
+// Swagger en développement
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -30,29 +48,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+// Important : mapper les controllers
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
