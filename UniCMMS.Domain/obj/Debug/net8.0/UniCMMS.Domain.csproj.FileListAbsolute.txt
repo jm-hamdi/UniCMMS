@@ -1,0 +1,12 @@
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/bin/Debug/net8.0/UniCMMS.Domain.deps.json
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/bin/Debug/net8.0/UniCMMS.Domain.dll
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/bin/Debug/net8.0/UniCMMS.Domain.pdb
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.AssemblyInfoInputs.cache
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.AssemblyInfo.cs
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.csproj.CoreCompileInputs.cache
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.sourcelink.json
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.dll
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/refint/UniCMMS.Domain.dll
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/UniCMMS.Domain.pdb
+/Users/JM/Desktop/UniCMMS/UniCMMS.Domain/obj/Debug/net8.0/ref/UniCMMS.Domain.dll

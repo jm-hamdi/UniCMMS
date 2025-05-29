@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ZC/7b1c+S2rFOqTkf29QzzPyl+EE1GlPZ/GAj7sTQ+E=",
+  "Source": "UniCMMS.API",
+  "BasePath": "_content/UniCMMS.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
